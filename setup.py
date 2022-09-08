@@ -43,15 +43,7 @@ setup(
                 'src/deform_pool_cuda_kernel.cu'
             ]),
         
-        make_cuda_ext(
-            name='orn_cuda',
-            module='models.orn',
-            sources=[
-                'src/vision.cpp',
-                'src/cpu/ActiveRotatingFilter_cpu.cpp', 'src/cpu/RotationInvariantEncoding_cpu.cpp',
-                'src/cuda/ActiveRotatingFilter_cuda.cu', 'src/cuda/RotationInvariantEncoding_cuda.cu',
-            ]),
-        
+
         # 旋转框iou计算方法
         make_cuda_ext(
             name='box_iou_rotated_cuda',
@@ -61,31 +53,16 @@ setup(
                 'src/box_iou_rotated_cuda.cu'
             ]),
         
-        # 旋转框多类别NMS
-        make_cuda_ext(
-                name='nms_rotated_cuda',
-                module='utils.nms_rotated',
-                sources=['src/nms_rotated_cpu.cpp', 'src/nms_rotated_cuda.cu']),
+        # # 旋转框多类别NMS
+        # make_cuda_ext(
+        #         name='nms_rotated_cuda',
+        #         module='utils.nms_rotated',
+        #         sources=['src/nms_rotated_cpu.cpp', 'src/nms_rotated_cuda.cu']),
         make_cuda_ext(
             name='ml_nms_rotated_cuda',
             module='utils.ml_nms_rotated',
             sources=['src/nms_rotated_cpu.cpp', 'src/nms_rotated_cuda.cu']),
         
-
-        ## focal loss
-        make_cuda_ext(
-            name='sigmoid_focal_loss_cuda',
-            module='utils.sigmoid_focal_loss',
-            sources=[
-                'src/sigmoid_focal_loss.cpp',
-                'src/sigmoid_focal_loss_cuda.cu'
-            ]),
-
-        # 旋转iou loss
-        make_cuda_ext(
-                name='sort_vertices_cuda',
-                module='utils.box_iou_rotated_diff',
-                sources=['src/sort_vert.cpp', 'src/sort_vert_kernel.cu',]),
     ],
         
     #  cmdclass 为python setup.py build_ext命令,指定为BuildExtension

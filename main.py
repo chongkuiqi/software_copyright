@@ -326,7 +326,7 @@ class ShowUIMainWindow(QMainWindow, Ui_MainWindow):
         return img, shape0, ratio_pad
 
 
-    def get_model(self, weight_path="/home/lab/ckq/S2ANet/runs/train/exp252/weights/best.pt"):
+    def get_model(self, weight_path="/home/lab/ckq/S2ANet/runs/train/exp369/weights/best.pt"):
 
         model = torch.load(weight_path, map_location='cpu')['model']
         model.float()

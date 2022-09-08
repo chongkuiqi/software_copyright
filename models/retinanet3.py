@@ -13,7 +13,7 @@ from utils.bbox_nms_rotated import multiclass_nms_rotated
 from functools import partial
 
 from models.backbone import DetectorBackbone
-from models.neck import FPN, PAN
+from models.neck import PAN
 
 from models.alignconv import AlignConv
 
